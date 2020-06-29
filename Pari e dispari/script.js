@@ -10,32 +10,35 @@ var pariDispari = prompt("Pari o dispari?");
 // Utente inserisce un numero da 1 a 5
 var numUtente = parseInt(prompt("Dammi un numero da 1 a 5"));
 console.log(numUtente);
-// Il computer genera un numero random
 
-// var min = 1; <- codice senza function
-// var max = 5;
-// var numComputer = Math.floor(Math.random() * (max - min + 1)) + min;
 var numComputer = numeroCasualeComputer(1, 5);
  console.log(numComputer);
 
-//Codice vecchio stile
- var somma = numUtente+numComputer;
- console.log(somma);
+ var somma = somma(numUtente, numComputer);
+
+if (somma == true) {
+   console.log("hai vinto");
+ } else {console.log("hai perso");
+}
 
 
-  if(somma%2 == 0 && pariDispari == "pari") {
-   console.log("hai vinto");
- } else if (!(somma%2 == 0) && pariDispari == "dispari") {
-   console.log("hai vinto");
- } else {
-   console.log("hai perso");
- }
 
 
 
 
 
 // Funzioni
+function somma(n1, n2){
+  var somma = n1+n2;
+
+  if(somma%2 == 0 && pariDispari == "pari") {
+   return true;
+ } else if (!(somma%2 == 0) && pariDispari == "dispari") {
+   return true;
+ } else {
+   return false;
+ }
+}
 
 function numeroCasualeComputer(min, max) {
  min = Math.ceil(min);
